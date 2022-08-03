@@ -1,7 +1,7 @@
 FROM node:14
-WORKDIR /
-EXPOSE 3000
-ADD node_modules.tar.gz .
+WORKDIR /usr/app
 COPY . .
-CMD ["npm", "start"]
-
+ADD ./node_modules.tar.gz ./node_modules
+RUN ["npm", "install"]
+EXPOSE 3000
+CMD [ "npm", "start" ]

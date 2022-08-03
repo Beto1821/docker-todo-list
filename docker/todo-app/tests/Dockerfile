@@ -1,5 +1,6 @@
 FROM mjgargani/puppeteer:trybe1.0
-WORKDIR /
-ADD node_modules.tar.gz .
+WORKDIR /usr/app
 COPY . .
-CMD ["npm", "test"]
+ADD ./node_modules.tar.gz ./node_modules
+RUN ["npm", "install"]
+CMD [ "npm", "test" ]
